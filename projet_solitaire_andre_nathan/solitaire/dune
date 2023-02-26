@@ -1,0 +1,6 @@
+(executable
+	(name solitaire)
+	(libraries graphics))
+(env
+  (dev
+    (flags (:standard -w -26 -w -35))))
