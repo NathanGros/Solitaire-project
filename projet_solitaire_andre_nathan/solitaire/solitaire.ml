@@ -10,6 +10,10 @@ let points = ref [] ;;
 let temp_points = ref [] ;;
 let diff_int = ref 0 ;;
 
+
+
+
+
 let customize_window () =
   open_graph " 800x800+600-150";
   clear_graph ();
@@ -204,6 +208,7 @@ let print_difficulty () =
 ;;
 
 let _ =
+  (*initialisation*)
   customize_window ();
   let running = ref true in
   let x = ref 3 in
@@ -211,6 +216,7 @@ let _ =
   let cursor_mode = ref true in
   let score = ref 0 in
   print_rules ();
+  
   (*difficulty selection*)
   let wait_key_pressed = wait_next_event [Key_pressed] in
   print_difficulty ();
@@ -235,6 +241,8 @@ let _ =
   let board, board_size = board_make diff in
   prepare_board board board_size;
   tilecolor board x y bh fh;
+  
+  (*game*)
   while !running do
     print_matrix board score board_size ((800-board_size*40)/2) ((800-board_size*40)/2);
     let keydetect = wait_next_event [Key_pressed] in
